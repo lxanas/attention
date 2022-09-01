@@ -1,0 +1,6 @@
+print("01234567890123456789012345678901234567890123456789")
+print("{0:<9s}{1:<30s}{2:>10s}".format("week no", "holiday/event", "date"))
+print("{0:^9n}{1:<30s}{2:>10s}".format(5, "CNY/stay home", "11/02"))
+print("{0:^9n}{1:<30s}{2:>10s}".format(5, "Valentine’s day/stay home", "14/02"))
+print("{0:^9n}{1:<30s}{2:>10s}".format(11, "Ching Ming/stay home", "04/04"))
+print("{0:^9n}{1:<30s}{2:>10s}".format(14, "Labor Day/stay home", "01/05"))
