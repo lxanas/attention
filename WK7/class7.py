@@ -71,23 +71,44 @@
 # cels = dict(zip(fahs.keys(), cel))
 # print(cels)
 
-names = ['Yuqi Lan', 'Marilyn Leung', 'Chenyu Zhang', 'WiingSze Wong']
-first = set()
-for i in names:
-    temp = i.split()
-    first.add(temp[0])
-print(first)
+# names = ['Yuqi Lan', 'Marilyn Leung', 'Chenyu Zhang', 'WiingSze Wong']
+# first = set()
+# for i in names:
+#     temp = i.split()
+#     first.add(temp[0])
+# print(first)
+#
+# last = set(list(i.split()[-1] for i in names))
+# print(last)
+#
+# lasts = sorted(names, key=lambda x: x.split()[-1])
+# print(lasts)
 
-last = set(list(i.split()[-1] for i in names))
-print(last)
+# def lastname(x):
+#     return x.split()[-1]
+#
+#
+# last_new = sorted(names, key=lastname)
+# print(last_new)
+#
+# infile = open("States.txt", 'r')
+# states = [x.rstrip() for x in infile]
+# print(states)
+# states = states[:14]
+# states.sort()
+# print(states)
+#
+# for i in range(12):
+#     print(states[i] + ',' + ' ', end='')
+# print(states[13])
 
-lasts = sorted(names, key=lambda x: x.split()[-1])
-print(lasts)
+def isPalindrome(astr, start, end):
+    if start == end or start > end:
+        return True
+    elif astr[start] == astr[end]:
+        return isPalindrome(astr, start + 1, end - 1)
+    return False
 
 
-def lastname(x):
-    return x.split()[-1]
-
-
-last_new = sorted(names, key=lastname)
-print(last_new)
+read = input("input your word: ")
+print(isPalindrome(read, 0, len(read) - 1))
