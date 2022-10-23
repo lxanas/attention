@@ -42,27 +42,20 @@ print(y.shape)
 
 # print(x)
 
-def create_model():
-    model = Sequential()
 
-    model.add(Dense(128, input_shape=(13,), activation='relu', name='dense_1'))
-    model.add(Dense(64, activation='relu', name='dense_2'))
-    model.add(Dense(32, activation='relu', name='dense_3'))
-    model.add(Dense(1, activation='linear', name='dense_output'))
+model = Sequential()
+model.add(Dense(13, input_dim=13, kernel_initializer='normal', activation='relu'))
+model.add(Dense(1, kernel_initializer='normal'))
+model.compile(optimizer='adam', loss='mse', metrics=['mse'])
 
-    model.compile(optimizer='adam', loss='mae', metrics=['mse'])
-    return model
 
 
 # print(x[:3])
-# x = x.reshape(-1, 1, 13)
-# y = y.reshape(-1, 1, 1)
 print(x.shape)
 print(y.shape)
 # print(x[:3])
-model = create_model()
-history = model.fit(x, y, epochs=100, batch_size=128, validation_split=0.05)
-plt.plot(history.history['loss'], label='train')
-plt.plot(history.history['val_loss'], label='test')
-plt.legend()
-plt.show()
+history = model.fit(x, y, epochs=10, batch_size=128, validation_split=0.2)
+# plt.plot(history.history['loss'], label='train')
+# plt.plot(history.history['val_loss'], label='test')
+# plt.legend()
+# plt.show()
