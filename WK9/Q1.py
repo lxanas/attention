@@ -1,7 +1,8 @@
-from WK9.pairOfDice import pairOfDice
+from WK9.pairOfDice import PairOfDice
 
-red = pairOfDice()
-blue = pairOfDice()
-print("Red die: " + str(red.showDie()))
-print("Blue die: " + str(blue.showDie()))
-print("Total: " + str(red.showDie() + blue.showDie()))
+a = PairOfDice()
+a.roll()
+print("Red die: " + str(a.getRedDie()))
+print("Blue die: " + str(a.getBlueDie()))
+print("Total: " + str(a.sum()))
+

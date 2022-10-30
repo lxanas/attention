@@ -1,25 +1,14 @@
-from WK9.pairOfDice import pairOfDice
+from WK9.pairOfDice import PairOfDice
 
-
-class Player(pairOfDice):
-    def __init__(self, name):
-        super().__init__()
-        self.name = name
-
-    def showPlayer(self):
-        return self.name
-
-    def showDetail(self):
-        return self.showPlayer() + ": " + str(self.showDie())
-
-
-one = Player("Player 1")
-two = Player("Player 2")
-print(one.showDetail())
-print(two.showDetail())
-if one.showDie() > two.showDie():
-    print(one.showPlayer() + " wins")
-elif one.showDie() == two.showDie():
+one = PairOfDice()
+two = PairOfDice()
+one.roll()
+two.roll()
+print("Player 1: " + str(one.sum()))
+print("Player 2: " + str(two.sum()))
+if one.sum() > two.sum():
+    print("Player 1 wins")
+elif one.sum() == two.sum():
     print("TIE")
 else:
-    print(two.showPlayer() + " wins")
+    print("Player 2 wins")
