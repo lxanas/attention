@@ -67,3 +67,6 @@ plt.plot(history.history['loss'], label='train')
 plt.plot(history.history['val_loss'], label='test')
 plt.legend()
 plt.show()
+
+from keras.utils.vis_utils import plot_model
+plot_model(model, to_file='Flatten2.png', show_shapes=True)

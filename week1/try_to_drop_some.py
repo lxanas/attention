@@ -13,7 +13,7 @@ raw_data.drop('ID', axis=1, inplace=True)
 # raw_data.drop('Transportation expense', axis=1, inplace=True)
 # raw_data.drop('Service time', axis=1, inplace=True)
 # raw_data.drop('Hit target', axis=1, inplace=True)
-raw_data.drop('Pet', axis=1, inplace=True)
+# raw_data.drop('Pet', axis=1, inplace=True)
 # raw_data.info()
 # print(raw_data[:5])
 numeric_features = raw_data.dtypes[raw_data.dtypes != 'object'].index
@@ -41,8 +41,8 @@ print(raw_data.shape)
 def create_dataset(data):
     x, y = [], []
     for i in range(len(data)):
-        x.append(data[i][:18])
-        y.append(data[i][18])
+        x.append(data[i][:19])
+        y.append(data[i][19])
     return np.array(x), np.array(y)
 
 
@@ -71,11 +71,10 @@ print(y.shape)
 def create_model():
     model = Sequential()
 
-    model.add(Dense(128, input_shape=(18,), activation='sigmoid', name='dense_1'))
+    model.add(Dense(128, input_shape=(19,), activation='sigmoid', name='dense_1'))
     model.add(Dense(64, activation='sigmoid', name='dense_2'))
-    # model.add(Dense(1, activation='linear', name='dense_output'))
+    # model.add(Dense(8, activation='sigmoid', name='dense_3'))
     model.add(Dense(8, activation='softmax', name='dense_output'))
-    # model.compile(optimizer='adam', loss='mae', metrics=['mae'])
     model.compile(optimizer='adam', loss='categorical_crossentropy',
                   metrics=['accuracy'])
     # model = Sequential()
@@ -99,3 +98,5 @@ plt.plot(history.history['loss'], label='train')
 plt.plot(history.history['val_loss'], label='test')
 plt.legend()
 plt.show()
+from keras.utils.vis_utils import plot_model
+plot_model(model, to_file='Flatten1.png', show_shapes=True)
